@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Python group Django</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <div>
+            <h1>Python group Django</h1>
+        </div>
+
+        <ul>
+            {% for post in posts %}
+            <li>
+                <h2><a href="">{{post.title}}</a></h2>
+                <i>Дата публикации: {{post.published_date}}</i>
+                <p>{{ post.text|linebreaksbr }}</p>
+                <hr>
+            </li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>
