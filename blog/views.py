@@ -13,4 +13,9 @@ def index(request):
 def categ(request, catid):
     return HttpResponse(f"<h1>Cats{catid}</h1>")
 
+def widh(request):
+    return render(request,'blog/widh.html ')
+def detail(request):
+    return render(request,'blog/detail.html')
+
 
