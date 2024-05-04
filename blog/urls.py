@@ -6,4 +6,5 @@ urlpatterns = [
     path('cats/<int:catid>/', views.categ, name='categ'),
     path('widh',views.widh,name ='widh'),
     path('post/<int:pk>/', views.detail, name ='detail'),
+    path('new',views.new,name='new'),
 ]

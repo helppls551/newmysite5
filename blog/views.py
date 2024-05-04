@@ -17,5 +17,7 @@ def widh(request):
     return render(request,'blog/widh.html ')
 def detail(request):
     return render(request,'blog/detail.html')
+def new(request):
+    return render(request,'blog/new.html')
 
 
