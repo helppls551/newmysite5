@@ -18,12 +18,13 @@ def post_info(request, pk):
 def post_new(request):
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES)
-        post = form.save(commit=False)
-        post.author = request.user
-        post.published_date = timezone.now()
-        print(post.published_date, "<<<")
-        post.save()
-        return redirect('post_info', pk=post.pk)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            post.published_date = timezone.now()
+            print(post.published_date)
+            post.save()
+            return redirect('post_info', pk=post.pk)
     else:
         form = PostForm()
     return render(request, 'blog/post_new.html', {'form': form})

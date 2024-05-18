@@ -2,14 +2,16 @@
 {% block content %}
     {% for post in posts %}
         <div class="post">
-            <h1><a href="{% url 'post_info' pk=post.pk %}">{{ post.title }}</a></h1>
-            {% if post.photo %}
-            <p><img src="{{ post.photo.url }}" width="100" height="100"></p>
-            {% endif %}
-            <p>{{ post.text|linebreaksbr|truncatewords:10 }}</p>
-            <div class="date">
-                <p>Опубликовано: {{ post.published_date }}</p>
-            </div>
+            <a href="{% url 'post_info' pk=post.pk %}">
+                <h1>{{ post.title }}</h1>
+                {% if post.photo %}
+                <p><img src="{{ post.photo.url }}" width="100" height="100"></p>
+                {% endif %}
+                <p>{{ post.text|linebreaksbr|truncatewords:10 }}</p>
+                <div class="date">
+                    <p>Опубликовано: {{ post.published_date }}</p>
+                </div>
+            </a>
         </div>
     {% endfor %}
 {% endblock %}
