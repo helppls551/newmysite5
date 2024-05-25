@@ -49,3 +49,6 @@ def notebook(request):
     return render(request, 'blog/post_notebook.html', {'posts': posts})
 
 def publish(request):
+    post = get_object_or_404(MyPublish, pk=pk)
+    post.publish()
+    return redirect('post_info', pk=pk)
