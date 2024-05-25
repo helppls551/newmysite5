@@ -43,3 +43,9 @@ def post_edit(request, pk):
     else:
         form = PostForm(instance=post)
     return render(request, 'blog/post_new.html', {"form":form})
+
+def notebook(request):
+    posts = MyPublish.objects.filter(published_date__isnull=True).order_by('created_date')
+    return render(request, 'blog/post_notebook.html', {'posts': posts})
+
+def publish(request):
