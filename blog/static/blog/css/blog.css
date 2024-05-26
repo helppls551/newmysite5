@@ -25,8 +25,17 @@ h2 a {
 
 .page-header {
     background-color: #367507;
-    margin-top: 0;
+    margin-top: 20;
     padding: 20px 20px 20px 40px;
+    display:inline;
+}
+.hr{
+    margin:0;
+    padding:3px;
+}
+.hr1 {
+    display:inline;
+    margin-right:3px;
 }
 
 

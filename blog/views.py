@@ -48,7 +48,16 @@ def notebook(request):
     posts = MyPublish.objects.filter(published_date__isnull=True).order_by('created_date')
     return render(request, 'blog/post_notebook.html', {'posts': posts})
 
-def publish(request):
+def publish(request,pk):
     post = get_object_or_404(MyPublish, pk=pk)
     post.publish()
     return redirect('post_info', pk=pk)
+
+def delete(request,pk):
+    post = get_object_or_404(MyPublish,pk=pk)
+    post.delete()
+    return redirect('index')
+
+def mine(request):
+    posts = MyPublish.objects.filter(author=request.user).order_by('published_date')
+    return render(request, 'blog/mine.html', {'posts': posts})

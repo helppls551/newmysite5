@@ -8,12 +8,15 @@
     </head>
     <body>
         <div class="page-header">
-            <h1><a href="/">Django Group</a></h1>
-            <p class = 'admin'><a href="admin/">Админ панель</a></p>
-            {% if user.is_authenticated %}
-                <p class="admin"><a href="{% url 'post_new' %}">Добавить пост</a></p>
-                <p class="admin"><a href="{% url 'post_notebook' %}">Черновик</a></p>
-            {% endif %}
+            <ul class="hr">
+                <li class="hr1"><h1><a href="/">Django Group</a></h1></li>
+                <li class="hr1"><p class = 'admin'><a href="admin/">Админ панель</a></p></li>
+                <li class="hr1"><p class = 'admin'><a href="mine/">Личное</a></p></li>
+                {% if user.is_authenticated %}
+                    <li class="hr1"><p class="admin"><a href="{% url 'post_new' %}">Добавить пост</a></p></li>
+                    <li class="hr1"><p class="admin"><a href="{% url 'post_notebook' %}">Черновик</a></p></li>
+                {% endif %}
+            </ul>
         </div>
 
         <div class="content container">
